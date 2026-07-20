@@ -37,8 +37,6 @@ db.serialize(() => {
     db.run(`CREATE TABLE IF NOT EXISTS financial_records (id INTEGER PRIMARY KEY AUTOINCREMENT, order_no TEXT UNIQUE, user_email TEXT, amount REAL, agent_id INTEGER DEFAULT 0, status TEXT DEFAULT 'success', remark TEXT, created_at DATETIME DEFAULT CURRENT_TIMESTAMP)`);
     db.run(`CREATE TABLE IF NOT EXISTS templates (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, cover_url TEXT NOT NULL, json_data TEXT NOT NULL, category TEXT DEFAULT 'h5', creator_id INTEGER DEFAULT 1, price REAL DEFAULT 0.00, status INTEGER DEFAULT 1, created_at DATETIME DEFAULT CURRENT_TIMESTAMP)`);
     db.run(`CREATE TABLE IF NOT EXISTS system_components (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT UNIQUE, icon TEXT, category TEXT, status INTEGER DEFAULT 1, sort_order INTEGER DEFAULT 1)`);
-
-    // 🌟 风控销毁日志备份表
     db.run(`CREATE TABLE IF NOT EXISTS operation_logs (id INTEGER PRIMARY KEY AUTOINCREMENT, admin_id TEXT, action TEXT, target_id TEXT, backup_data TEXT, created_at DATETIME DEFAULT CURRENT_TIMESTAMP)`);
 
     db.run(`ALTER TABLE h5_works ADD COLUMN cover_url TEXT`, () => { });
@@ -71,17 +69,27 @@ function verifyPermission(allowedRoles = []) {
     };
 }
 
+// 💥 修复图1：开发环境将验证码直接返回并打印
 app.post('/api/auth/send-code', (req, res) => {
     const { email } = req.body;
     if (!email) return res.status(400).json({ code: 400, msg: '邮箱不能为空' });
     const code = Math.floor(100000 + Math.random() * 900000).toString();
-    db.run(`INSERT INTO otp_records (email, code, expires_at) VALUES (?, ?, ?)`, [email, code, Date.now() + 5 * 60 * 1000], () => res.json({ code: 200, msg: '验证码下发成功！' }));
+
+    console.log(`\n================================`);
+    console.log(`✉️ 【系统模拟发送邮件】`);
+    console.log(`接收人: ${email}`);
+    console.log(`验证码: ${code}`);
+    console.log(`================================\n`);
+
+    db.run(`INSERT INTO otp_records (email, code, expires_at) VALUES (?, ?, ?)`, [email, code, Date.now() + 5 * 60 * 1000], () => {
+        res.json({ code: 200, msg: `发送成功！(开发验证码: ${code})` });
+    });
 });
 
 app.post('/api/auth/register', (req, res) => {
     const { email, password, verifyCode } = req.body;
     db.get(`SELECT * FROM otp_records WHERE email = ? AND is_used = 0 ORDER BY id DESC LIMIT 1`, [email], (err, record) => {
-        if (!record || record.expires_at < Date.now() || record.code !== verifyCode) return res.status(400).json({ code: 400, msg: '验证码失效' });
+        if (!record || record.expires_at < Date.now() || record.code !== verifyCode) return res.status(400).json({ code: 400, msg: '验证码失效或错误' });
         db.run(`INSERT INTO users (username, password, role) VALUES (?, ?, 'user')`, [email, hashPassword(password)], function (err) {
             if (err) return res.status(500).json({ code: 500, msg: '写入失败' });
             db.run(`UPDATE otp_records SET is_used = 1 WHERE id = ?`, [record.id]);
@@ -138,7 +146,6 @@ app.get('/api/admin/all-works', verifyPermission(['admin']), (req, res) => {
     db.all(`SELECT id, user_id, title, cover_url, category, is_published, datetime(updated_at, 'localtime') as date FROM h5_works ORDER BY updated_at DESC`, [], (err, rows) => res.json({ code: 200, data: rows }));
 });
 
-// 💥 修复图1、图2：真正的删除接口并记录备份
 app.post('/api/admin/force-delete-work', verifyPermission(['admin']), (req, res) => {
     const { id } = req.body;
     const adminId = req.headers['x-user-id'];
@@ -158,6 +165,17 @@ app.get('/api/admin/operation-logs', verifyPermission(['admin']), (req, res) => 
 
 app.get('/api/components/list', (req, res) => {
     db.all(`SELECT * FROM system_components ORDER BY sort_order ASC`, [], (err, rows) => res.json({ code: 200, data: rows }));
+});
+
+// 💥 修复图2：提供保存/下发新组件的接口
+app.post('/api/admin/components/add', verifyPermission(['admin']), (req, res) => {
+    const { name, icon, category } = req.body;
+    if (!name) return res.status(400).json({ code: 400, msg: '组件名称不能为空' });
+
+    db.run(`INSERT INTO system_components (name, icon, category, status, sort_order) VALUES (?, ?, ?, 1, 99)`, [name, icon || '📦', category || '自定义组件'], function (err) {
+        if (err) return res.status(500).json({ code: 500, msg: '该组件名称可能已存在' });
+        res.json({ code: 200, msg: '新组件下发成功！' });
+    });
 });
 
 app.post('/api/admin/components/toggle', verifyPermission(['admin']), (req, res) => {
