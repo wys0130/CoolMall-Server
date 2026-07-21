@@ -33,7 +33,6 @@ const db = new sqlite3.Database('./coolmall.db', (err) => {
 db.serialize(() => {
     db.run(`CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE, password TEXT, role TEXT DEFAULT 'user', vip_expire DATETIME DEFAULT NULL, failed_attempts INTEGER DEFAULT 0, parent_agent_id INTEGER DEFAULT 0, created_at DATETIME DEFAULT CURRENT_TIMESTAMP)`);
     db.run(`CREATE TABLE IF NOT EXISTS otp_records (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, code TEXT, expires_at INTEGER, is_used BOOLEAN DEFAULT 0)`);
-    // 默认 is_published = 0
     db.run(`CREATE TABLE IF NOT EXISTS h5_works (id TEXT PRIMARY KEY, user_id INTEGER, title TEXT DEFAULT '未命名', schema_json TEXT, cover_url TEXT, category TEXT DEFAULT 'h5', is_published INTEGER DEFAULT 0, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP)`);
     db.run(`CREATE TABLE IF NOT EXISTS financial_records (id INTEGER PRIMARY KEY AUTOINCREMENT, order_no TEXT UNIQUE, user_email TEXT, amount REAL, agent_id INTEGER DEFAULT 0, status TEXT DEFAULT 'success', remark TEXT, created_at DATETIME DEFAULT CURRENT_TIMESTAMP)`);
     db.run(`CREATE TABLE IF NOT EXISTS templates (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, cover_url TEXT NOT NULL, json_data TEXT NOT NULL, category TEXT DEFAULT 'h5', creator_id INTEGER DEFAULT 1, price REAL DEFAULT 0.00, status INTEGER DEFAULT 1, created_at DATETIME DEFAULT CURRENT_TIMESTAMP)`);
@@ -41,25 +40,47 @@ db.serialize(() => {
     db.run(`CREATE TABLE IF NOT EXISTS operation_logs (id INTEGER PRIMARY KEY AUTOINCREMENT, admin_id TEXT, action TEXT, target_id TEXT, backup_data TEXT, created_at DATETIME DEFAULT CURRENT_TIMESTAMP)`);
     db.run(`CREATE TABLE IF NOT EXISTS system_settings (key TEXT UNIQUE, value TEXT)`);
 
-    db.run(`ALTER TABLE h5_works ADD COLUMN cover_url TEXT`, () => { });
-    db.run(`ALTER TABLE h5_works ADD COLUMN is_published INTEGER DEFAULT 0`, () => { });
-    db.run(`ALTER TABLE h5_works ADD COLUMN category TEXT DEFAULT 'h5'`, () => { });
-
     const defaultAdmin = 'admin@coolmall.com';
     const defaultAdminPwd = hashPassword('admin123456');
     db.get(`SELECT id FROM users WHERE username = ?`, [defaultAdmin], (err, row) => {
         if (!row) db.run(`INSERT INTO users (username, password, role) VALUES (?, ?, 'admin')`, [defaultAdmin, defaultAdminPwd]);
     });
 
-    db.run(`UPDATE system_components SET name = '轮播组件' WHERE name = '轮播图组件'`);
-
+    // 把原来的 defaultComps 替换成下面这套真实的前端组件名单！
     const defaultComps = [
-        ['轮播组件', '🖼️', '基础组件', 1, 1], ['表单组件', '📝', '基础组件', 1, 2],
-        ['页头组件', '🔝', '基础组件', 1, 3], ['图文组件', '📰', '基础组件', 1, 4],
-        ['长文本组件', '📄', '基础组件', 1, 5], ['通知组件', '📢', '基础组件', 1, 6],
-        ['图片组件', '📸', '基础组件', 1, 7], ['列表组件', '📑', '基础组件', 1, 8],
-        ['视频组件', '▶️', '媒体组件', 1, 9], ['音频组件', '🎵', '媒体组件', 1, 10],
-        ['地图组件', '🗺️', '媒体组件', 1, 11], ['日历组件', '📅', '媒体组件', 1, 12]
+        // --- 基础组件 ---
+        ['表单定制组件', '📝', '基础组件', 1, 1],
+        ['单行文本', '📄', '基础组件', 1, 2],
+        ['文本组件', '📄', '基础组件', 1, 3],
+        ['空白组件', '⬜', '基础组件', 1, 4],
+        ['富文本组件', '📰', '基础组件', 1, 5],
+        ['图标组件', '💠', '基础组件', 1, 6],
+        ['二维码组件', '🔲', '基础组件', 1, 7],
+        ['表格组件', '📊', '基础组件', 1, 8],
+        ['轮播图组件', '🖼️', '基础组件', 1, 9],
+        ['页头组件', '🔝', '基础组件', 1, 10],
+        ['列表组件', '📑', '基础组件', 1, 11],
+        ['通知组件', '📢', '基础组件', 1, 12],
+
+        // --- 媒体组件 ---
+        ['视频组件', '▶️', '媒体组件', 1, 13],
+        ['音频组件', '🎵', '媒体组件', 1, 14],
+        ['图片组件', '📸', '媒体组件', 1, 15],
+        ['地图组件', '🗺️', '媒体组件', 1, 16],
+        ['日历组件', '📅', '媒体组件', 1, 17],
+
+        // --- 可视化组件 ---
+        ['柱状图组件', '📊', '可视化组件', 1, 18],
+        ['折线图组件', '📈', '可视化组件', 1, 19],
+        ['饼图组件', '🥧', '可视化组件', 1, 20],
+        ['面积图组件', '📉', '可视化组件', 1, 21],
+        ['进度条组件', '🔋', '可视化组件', 1, 22],
+
+        // --- 营销组件 ---
+        ['专栏组件', '💎', '营销组件', 1, 23],
+        ['切换页组件', '🔄', '营销组件', 1, 24],
+        ['优惠券组件', '🎟️', '营销组件', 1, 25],
+        ['商品标签', '🏷️', '营销组件', 1, 26]
     ];
     defaultComps.forEach(comp => db.run(`INSERT OR IGNORE INTO system_components (name, icon, category, status, sort_order) VALUES (?, ?, ?, ?, ?)`, comp));
 
@@ -72,6 +93,14 @@ db.serialize(() => {
             db.run(`INSERT INTO system_settings (key, value) VALUES ('carousel', ?)`, [JSON.stringify(initCarousel)]);
         }
     });
+    // 🌟 初始化顶部公告配置
+    db.get(`SELECT value FROM system_settings WHERE key = 'announcement'`, (err, row) => {
+        if (!row) {
+            db.run(`INSERT INTO system_settings (key, value) VALUES ('announcement', ?)`, ['🎉 欢迎来到酷猫商业中枢！全新云表格与H5可视化编辑器已全面上线，快来开启您的创意创作吧！']);
+        }
+    });
+
+
 });
 
 function verifyPermission(allowedRoles = []) {
@@ -112,14 +141,21 @@ app.post('/api/login', (req, res) => {
 });
 
 app.post('/api/h5/save', verifyPermission(['admin', 'agent', 'vip', 'user']), (req, res) => {
-    const { workId, schema, title, cover_url, category } = req.body;
-    // 💥 修复核心：这里的 INSERT 语句明确写入 0 (草稿状态)，并且 ON CONFLICT 不覆盖 is_published 字段！
-    const sql = `INSERT INTO h5_works (id, user_id, title, schema_json, cover_url, category, is_published, updated_at) 
-                 VALUES (?, ?, ?, ?, ?, ?, 0, CURRENT_TIMESTAMP) 
-                 ON CONFLICT(id) DO UPDATE SET schema_json = excluded.schema_json, title = excluded.title, cover_url = excluded.cover_url, category = excluded.category, updated_at = CURRENT_TIMESTAMP`;
-    db.run(sql, [workId, req.headers['x-user-id'], title || '未命名', JSON.stringify(schema), cover_url || '', category || 'h5'], (err) => {
-        if (err) return res.status(500).json({ code: 500, msg: '保存草稿失败' });
-        res.json({ code: 200, msg: '已保存至草稿箱' });
+    const { workId, schema, title, cover_url, category, is_published } = req.body;
+    const userId = req.headers['x-user-id'];
+
+    db.get('SELECT is_published FROM h5_works WHERE id = ?', [workId], (err, row) => {
+        const currentStatus = row ? row.is_published : 0;
+        const finalStatus = is_published !== undefined ? is_published : currentStatus;
+
+        const sql = `INSERT INTO h5_works (id, user_id, title, schema_json, cover_url, category, is_published, updated_at) 
+                     VALUES (?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP) 
+                     ON CONFLICT(id) DO UPDATE SET schema_json = excluded.schema_json, title = excluded.title, cover_url = excluded.cover_url, category = excluded.category, is_published = excluded.is_published, updated_at = CURRENT_TIMESTAMP`;
+
+        db.run(sql, [workId, userId, title || '未命名', JSON.stringify(schema), cover_url || '', category || 'h5', finalStatus], (err) => {
+            if (err) return res.status(500).json({ code: 500, msg: '保存失败' });
+            res.json({ code: 200, msg: '保存成功' });
+        });
     });
 });
 
@@ -136,7 +172,19 @@ app.get('/api/h5/my-works', verifyPermission(['admin', 'agent', 'vip', 'user']),
 });
 
 app.post('/api/h5/work/toggle-publish', verifyPermission(['admin', 'agent', 'vip', 'user']), (req, res) => {
-    db.run(`UPDATE h5_works SET is_published = ? WHERE id = ? AND user_id = ?`, [req.body.is_published, req.body.id, req.headers['x-user-id']], () => res.json({ code: 200, msg: '状态已更新' }));
+    const role = req.headers['x-role'];
+    const userId = req.headers['x-user-id'];
+
+    // 如果是管理员，直接按 ID 修改，不管是谁的作品；如果是普通用户，必须限制只能改自己的作品
+    if (role === 'admin') {
+        db.run(`UPDATE h5_works SET is_published = ? WHERE id = ?`, [req.body.is_published, req.body.id], () => {
+            res.json({ code: 200, msg: '状态已更新' });
+        });
+    } else {
+        db.run(`UPDATE h5_works SET is_published = ? WHERE id = ? AND user_id = ?`, [req.body.is_published, req.body.id, userId], () => {
+            res.json({ code: 200, msg: '状态已更新' });
+        });
+    }
 });
 
 app.get('/api/templates/list', (req, res) => {
@@ -150,6 +198,20 @@ app.get('/api/templates/list', (req, res) => {
 app.get('/api/settings/carousel', (req, res) => {
     db.get(`SELECT value FROM system_settings WHERE key = 'carousel'`, (err, row) => {
         res.json({ code: 200, data: row ? JSON.parse(row.value) : [] });
+    });
+});
+
+// 🌟 获取顶部公告
+app.get('/api/settings/announcement', (req, res) => {
+    db.get(`SELECT value FROM system_settings WHERE key = 'announcement'`, (err, row) => {
+        res.json({ code: 200, data: row ? row.value : '' });
+    });
+});
+
+// 🌟 管理员修改顶部公告
+app.post('/api/admin/settings/announcement', verifyPermission(['admin']), (req, res) => {
+    db.run(`UPDATE system_settings SET value = ? WHERE key = 'announcement'`, [req.body.content], () => {
+        res.json({ code: 200, msg: '公告更新成功' });
     });
 });
 
@@ -191,6 +253,7 @@ app.post('/api/admin/settings/carousel', verifyPermission(['admin']), (req, res)
 
 app.post('/api/admin/components/add', verifyPermission(['admin']), (req, res) => {
     const { name, icon, category } = req.body;
+    if (!name) return res.status(400).json({ code: 400, msg: '组件名称不能为空' });
     db.run(`INSERT INTO system_components (name, icon, category, status, sort_order) VALUES (?, ?, ?, 1, 99)`, [name, icon || '📦', category || '自定义组件'], function (err) {
         if (err) return res.status(500).json({ code: 500, msg: '已存在' });
         res.json({ code: 200, msg: '下发成功' });
@@ -232,6 +295,20 @@ app.post('/api/render/screenshot', async (req, res) => {
 
 app.post('/api/templates/delete', (req, res) => {
     db.run(`DELETE FROM templates WHERE id = ?`, [req.body.id], () => res.json({ code: 200, msg: '已删除' }));
+});
+
+// 💥 修复组件库保存断连的核心：增加完备权限校验与强制安全类型转换机制
+app.post('/api/templates/save', verifyPermission(['admin', 'agent', 'vip', 'user']), (req, res) => {
+    const { title, cover_url, json_data, category } = req.body;
+    const dataStr = typeof json_data === 'string' ? json_data : JSON.stringify(json_data);
+    db.run(`INSERT INTO templates (title, cover_url, json_data, category, creator_id) VALUES (?, ?, ?, ?, ?)`,
+        [title, cover_url, dataStr, category, req.headers['x-user-id']], (err) => {
+            if (err) {
+                console.error("保存模板失败:", err);
+                return res.status(500).json({ code: 500, msg: '保存入库失败: ' + err.message });
+            }
+            res.json({ code: 200, msg: '保存成功' });
+        });
 });
 
 app.listen(3000, () => console.log('🚀 酷猫全算力后端引擎平稳运行在 3000 端口'));
