@@ -320,6 +320,15 @@ app.post('/api/templates/delete', (req, res) => {
     db.run(`DELETE FROM templates WHERE id = ?`, [req.body.id], () => res.json({ code: 200, msg: '已删除' }));
 });
 
+// 删除指定的后台操作日志
+app.post('/api/admin/operation-logs/delete', verifyPermission(['admin']), (req, res) => {
+    const { id } = req.body;
+    db.run(`DELETE FROM operation_logs WHERE id = ?`, [id], (err) => {
+        if (err) return res.status(500).json({ code: 500, msg: '删除日志失败' });
+        res.json({ code: 200, msg: '日志已清除' });
+    });
+});
+
 // 💥 修复组件库保存断连的核心：增加完备权限校验与强制安全类型转换机制
 app.post('/api/templates/save', verifyPermission(['admin', 'agent', 'vip', 'user']), (req, res) => {
     const { title, cover_url, json_data, category } = req.body;
