@@ -343,4 +343,25 @@ app.post('/api/templates/save', verifyPermission(['admin', 'agent', 'vip', 'user
         });
 });
 
+// 🌟 修复：允许用户或管理员删除自己的 H5 作品
+app.post('/api/h5/work/delete', verifyPermission(['admin', 'agent', 'vip', 'user']), (req, res) => {
+    const role = req.headers['x-role'];
+    const userId = req.headers['x-user-id'];
+    const { id } = req.body;
+
+    if (!id) return res.status(400).json({ code: 400, msg: '作品 ID 不能为空' });
+
+    if (role === 'admin') {
+        db.run(`DELETE FROM h5_works WHERE id = ?`, [id], (err) => {
+            if (err) return res.status(500).json({ code: 500, msg: '数据库删除失败' });
+            res.json({ code: 200, msg: '作品已成功删除' });
+        });
+    } else {
+        db.run(`DELETE FROM h5_works WHERE id = ? AND user_id = ?`, [id, userId], (err) => {
+            if (err) return res.status(500).json({ code: 500, msg: '数据库删除失败' });
+            res.json({ code: 200, msg: '作品已成功删除' });
+        });
+    }
+});
+
 app.listen(3000, () => console.log('🚀 酷猫全算力后端引擎平稳运行在 3000 端口'));
