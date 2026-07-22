@@ -187,6 +187,29 @@ app.post('/api/h5/work/toggle-publish', verifyPermission(['admin', 'agent', 'vip
     }
 });
 
+// 🌟 管理员手动为指定用户开通 VIP 权限
+app.post('/api/admin/users/grant-vip', verifyPermission(['admin']), (req, res) => {
+    const { userId, months } = req.body; // 传入用户 ID 和开通几个月
+    const expireDate = new Date();
+    expireDate.setMonth(expireDate.getMonth() + (months || 1));
+
+    db.run(`UPDATE users SET role = 'vip', vip_expire = ? WHERE id = ?`, [expireDate.toISOString(), userId], (err) => {
+        if (err) return res.status(500).json({ code: 500, msg: '授权失败' });
+        res.json({ code: 200, msg: 'VIP 权限开通成功！' });
+    });
+});
+
+// 🌟 管理员后台直接新增账号接口
+app.post('/api/admin/users/add', verifyPermission(['admin']), (req, res) => {
+    const { username, password, role } = req.body;
+    if (!username || !password) return res.status(400).json({ code: 400, msg: '邮箱和密码不能为空' });
+
+    db.run(`INSERT INTO users (username, password, role) VALUES (?, ?, ?)`, [username, hashPassword(password), role || 'user'], (err) => {
+        if (err) return res.status(500).json({ code: 500, msg: '该账号已存在或创建失败' });
+        res.json({ code: 200, msg: '账号创建成功' });
+    });
+});
+
 app.get('/api/templates/list', (req, res) => {
     db.all(`SELECT id, title, cover_url, json_data, category, datetime(created_at, 'localtime') as date FROM templates ORDER BY id DESC`, [], (err, tpls) => {
         db.all(`SELECT id, title, cover_url, schema_json as json_data, category, datetime(updated_at, 'localtime') as date FROM h5_works WHERE is_published = 1 ORDER BY updated_at DESC`, [], (err, works) => {
