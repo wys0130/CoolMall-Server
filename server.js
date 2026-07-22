@@ -152,9 +152,19 @@ app.post('/api/h5/save', verifyPermission(['admin', 'agent', 'vip', 'user']), (r
                      VALUES (?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP) 
                      ON CONFLICT(id) DO UPDATE SET schema_json = excluded.schema_json, title = excluded.title, cover_url = excluded.cover_url, category = excluded.category, is_published = excluded.is_published, updated_at = CURRENT_TIMESTAMP`;
 
-        db.run(sql, [workId, userId, title || '未命名', JSON.stringify(schema), cover_url || '', category || 'h5', finalStatus], (err) => {
+        const params = [workId, userId, title || '未命名', JSON.stringify(schema), cover_url || '', category || 'h5', finalStatus];
+
+        db.run(sql, params, (err) => {
             if (err) return res.status(500).json({ code: 500, msg: '保存失败' });
-            res.json({ code: 200, msg: '保存成功' });
+
+            // 🌟 核心补漏：同时双写同步到 templates 模板表，让商城首页/大盘能实时加载出来
+            const templateSql = `INSERT INTO templates (template_id, title, cover_url, schema_data, category, is_published) 
+                                 VALUES (?, ?, ?, ?, ?, ?)
+                                 ON CONFLICT(template_id) DO UPDATE SET title = excluded.title, cover_url = excluded.cover_url, schema_data = excluded.schema_data, category = excluded.category, is_published = excluded.is_published`;
+
+            db.run(templateSql, [workId, title || '未命名', cover_url || '', JSON.stringify(schema), category || 'h5', finalStatus], () => {
+                res.json({ code: 200, msg: '保存成功' });
+            });
         });
     });
 });
