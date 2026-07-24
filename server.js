@@ -110,6 +110,9 @@ app.post('/api/login', (req, res) => {
 // 🌟 干净的唯一保存流，去掉双写表逻辑
 app.post('/api/h5/save', verifyPermission(['admin', 'agent', 'vip', 'user']), (req, res) => {
     const { workId, schema, title, cover_url, category, is_published } = req.body;
+    if (!Array.isArray(schema)) {
+        return res.status(400).json({ code: 400, msg: 'schema必须为数组' });
+    }
     const userId = req.headers['x-user-id'];
 
     db.get('SELECT is_published FROM h5_works WHERE id = ?', [workId], (err, row) => {
