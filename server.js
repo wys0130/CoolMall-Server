@@ -308,4 +308,34 @@ app.post('/api/h5/work/delete', verifyPermission(['admin', 'agent', 'vip', 'user
     }
 });
 
+// 🧠 获取 AI CEO 的实时心流与灵感日志
+app.get('/api/ai/thoughts', (req, res) => {
+    const thoughtPath = path.join(__dirname, 'data', 'ai_thoughts.json');
+    if (fs.existsSync(thoughtPath)) {
+        try {
+            const data = JSON.parse(fs.readFileSync(thoughtPath, 'utf8'));
+            res.json({ code: 200, data });
+        } catch (e) {
+            res.json({ code: 200, data: [] });
+        }
+    } else {
+        res.json({ code: 200, data: [] });
+    }
+});
+
+// 💡 获取 AI 提交的技能树进化提案
+app.get('/api/ai/proposals', (req, res) => {
+    const propPath = path.join(__dirname, 'data', 'skill_tree_proposals.json');
+    if (fs.existsSync(propPath)) {
+        try {
+            const data = JSON.parse(fs.readFileSync(propPath, 'utf8'));
+            res.json({ code: 200, data });
+        } catch (e) {
+            res.json({ code: 200, data: [] });
+        }
+    } else {
+        res.json({ code: 200, data: [] });
+    }
+});
+
 app.listen(3000, () => console.log('🚀 酷猫全算力后端引擎平稳运行在 3000 端口'));
