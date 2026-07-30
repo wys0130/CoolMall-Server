@@ -589,27 +589,44 @@ def push_to_mall(page_title, schema_json, cover_url):
         conn = libsql.connect(database=TURSO_DB_URL, auth_token=TURSO_AUTH_TOKEN)
         cursor = conn.cursor()
 
-        # 🌟 严格对齐线上数据库结构：带有 user_id 和 updated_at，不再报 SQLite 缺列！
+        # 1. 基础建表逻辑
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS h5_works (
                 id TEXT PRIMARY KEY,
                 user_id INTEGER DEFAULT 1,
                 title TEXT,
                 subTitle TEXT,
-                cover_url TEXT,
                 schema_json TEXT,
+                cover_url TEXT,
                 category TEXT DEFAULT 'h5',
                 is_published INTEGER DEFAULT 1,
                 updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )
         """)
 
+        # 🌟 2. 加上这 3 行核心自愈 SQL！
+        # 哪怕远端是一张没有这些字段的老表，也能自动静默增齐字段，绝不会再抛 SQLITE_UNKNOWN！
+        for alter_sql in [
+            "ALTER TABLE h5_works ADD COLUMN updated_at DATETIME DEFAULT CURRENT_TIMESTAMP",
+            "ALTER TABLE h5_works ADD COLUMN user_id INTEGER DEFAULT 1",
+            "ALTER TABLE h5_works ADD COLUMN subTitle TEXT DEFAULT ''"
+        ]:
+            try:
+                cursor.execute(alter_sql)
+            except Exception:
+                pass  # 如果表里已经有这个字段了，静默跳过即可
+
+        # 3. 稳妥写入最新AI生成的商业落地页
         work_id = f"H5_{int(time.time())}"
         cursor.execute("""
-            INSERT INTO h5_works (id, user_id, title, subTitle, cover_url, schema_json, category, is_published, updated_at)
+            INSERT INTO h5_works (id, user_id, title, subTitle, schema_json, cover_url, category, is_published, updated_at)
             VALUES (?, 1, ?, ?, ?, ?, 'h5', 1, CURRENT_TIMESTAMP)
-            ON CONFLICT(id) DO UPDATE SET title = excluded.title, schema_json = excluded.schema_json, updated_at = CURRENT_TIMESTAMP
-        """, (work_id, page_title, "全自动营销海报", cover_url, json.dumps(schema_json, ensure_ascii=False)))
+            ON CONFLICT(id) DO UPDATE SET 
+                title = excluded.title, 
+                schema_json = excluded.schema_json, 
+                cover_url = excluded.cover_url,
+                updated_at = CURRENT_TIMESTAMP
+        """, (work_id, page_title, "全自动营销海报", json.dumps(schema_json, ensure_ascii=False), cover_url))
 
         conn.commit()
         logging.info(f"✅ 【{page_title}】 已成功直连写入 Turso 云端数据库，大盘已同步！")
