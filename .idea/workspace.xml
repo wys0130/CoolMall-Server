@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59dce538-c0a2-447a-bef3-05801ac500c1" name="默认更改列表" comment="" />
+    <list default="true" id="59dce538-c0a2-447a-bef3-05801ac500c1" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai_ceo_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_ceo_core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ai_worker_node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="663" column="18" lean-forward="true" selection-end-line="697" selection-end-column="40" />
+            <state relative-caret-position="190">
+              <caret line="677" lean-forward="true" selection-start-line="677" selection-end-line="677" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -29,8 +33,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="632" column="21" lean-forward="true" selection-end-line="644" selection-end-column="26" />
+            <state relative-caret-position="552">
+              <caret line="616" column="36" selection-start-line="616" selection-start-column="36" selection-end-line="616" selection-end-column="36" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -42,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/ai_ceo_core.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="476">
-              <caret line="134" column="21" lean-forward="true" selection-start-line="134" selection-start-column="21" selection-end-line="134" selection-end-column="21" />
+              <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -64,8 +68,10 @@
       <find>omposite_poster_cove</find>
       <find>posite_poster_cov</find>
       <find>ild_native_schem</find>
-      <find>DEEPSEEK_API_KEY = &quot;sk-73f2969b84454361a3210f44</find>
       <find>73f2969b84454361a3210f442ca79</find>
+      <find>DEEPSEEK_API_KEY = &quot;sk-73f2969b84454361a3210f44</find>
+      <find>f push_to_mall(page_title, schema_</find>
+      <find>ef push_to_mall(page_title, schema_json, cover_url</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -76,9 +82,9 @@
       <list>
         <option value="D:/CoolMall-Brain/ai_ceo_core.py" />
         <option value="D:/CoolMall-Server/main.py" />
+        <option value="$PROJECT_DIR$/ai_worker_node.py" />
         <option value="$PROJECT_DIR$/ai_ceo_core.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/ai_worker_node.py" />
       </list>
     </option>
   </component>
@@ -229,7 +235,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="830" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="830" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2600536" />
@@ -267,8 +273,8 @@
     <entry file="file://D:/CoolMall-Server/main.py" />
     <entry file="file://$PROJECT_DIR$/ai_worker_node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="663" column="18" lean-forward="true" selection-end-line="697" selection-end-column="40" />
+        <state relative-caret-position="190">
+          <caret line="677" lean-forward="true" selection-start-line="677" selection-end-line="677" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -277,8 +283,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="632" column="21" lean-forward="true" selection-end-line="644" selection-end-column="26" />
+        <state relative-caret-position="552">
+          <caret line="616" column="36" selection-start-line="616" selection-start-column="36" selection-end-line="616" selection-end-column="36" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -288,7 +294,7 @@
     <entry file="file://$PROJECT_DIR$/ai_ceo_core.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
-          <caret line="134" column="21" lean-forward="true" selection-start-line="134" selection-start-column="21" selection-end-line="134" selection-end-column="21" />
+          <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

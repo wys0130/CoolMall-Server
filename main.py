@@ -589,23 +589,27 @@ def push_to_mall(page_title, schema_json, cover_url):
         conn = libsql.connect(database=TURSO_DB_URL, auth_token=TURSO_AUTH_TOKEN)
         cursor = conn.cursor()
 
+        # 🌟 严格对齐线上数据库结构：带有 user_id 和 updated_at，不再报 SQLite 缺列！
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS h5_works (
                 id TEXT PRIMARY KEY,
+                user_id INTEGER DEFAULT 1,
                 title TEXT,
                 subTitle TEXT,
                 cover_url TEXT,
                 schema_json TEXT,
-                category TEXT,
-                is_published INTEGER
+                category TEXT DEFAULT 'h5',
+                is_published INTEGER DEFAULT 1,
+                updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )
         """)
 
         work_id = f"H5_{int(time.time())}"
         cursor.execute("""
-            INSERT INTO h5_works (id, title, subTitle, cover_url, schema_json, category, is_published)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-        """, (work_id, page_title, "全自动营销海报", cover_url, json.dumps(schema_json), "h5", 1))
+            INSERT INTO h5_works (id, user_id, title, subTitle, cover_url, schema_json, category, is_published, updated_at)
+            VALUES (?, 1, ?, ?, ?, ?, 'h5', 1, CURRENT_TIMESTAMP)
+            ON CONFLICT(id) DO UPDATE SET title = excluded.title, schema_json = excluded.schema_json, updated_at = CURRENT_TIMESTAMP
+        """, (work_id, page_title, "全自动营销海报", cover_url, json.dumps(schema_json, ensure_ascii=False)))
 
         conn.commit()
         logging.info(f"✅ 【{page_title}】 已成功直连写入 Turso 云端数据库，大盘已同步！")
