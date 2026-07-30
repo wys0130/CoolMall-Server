@@ -1,0 +1,608 @@
+2026-07-24 15:04:22,717 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:04:22,718 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:04:22,814 - ERROR - 大模型调用失败，启用兜底数据
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 90, in ai_remix_engine
+    resp = requests.post("https://open.bigmodel.cn/api/paas/v4/chat/completions", json=payload, headers=headers, timeout=15)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 499, in send
+    timeout=timeout,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "C:\Users\W\miniconda3\lib\http\client.py", line 1277, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\W\miniconda3\lib\http\client.py", line 1318, in _send_request
+    self.putheader(hdr, value)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connection.py", line 224, in putheader
+    _HTTPConnection.putheader(self, header, *values)
+  File "C:\Users\W\miniconda3\lib\http\client.py", line 1250, in putheader
+    values[i] = one_value.encode('latin-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 7-10: ordinal not in range(256)
+2026-07-24 15:04:22,819 - INFO - [ASSEMBLE] 装配原生组件
+2026-07-24 15:04:22,820 - INFO - [PUBLISH] 上架《高定抗衰私教专场》
+2026-07-24 15:04:22,877 - INFO - [OK] H5_AI_1784876662_782 上架成功
+2026-07-24 15:04:23,887 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:04:23,887 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:04:23,921 - ERROR - 大模型调用失败，启用兜底数据
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 90, in ai_remix_engine
+    resp = requests.post("https://open.bigmodel.cn/api/paas/v4/chat/completions", json=payload, headers=headers, timeout=15)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 499, in send
+    timeout=timeout,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "C:\Users\W\miniconda3\lib\http\client.py", line 1277, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\W\miniconda3\lib\http\client.py", line 1318, in _send_request
+    self.putheader(hdr, value)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connection.py", line 224, in putheader
+    _HTTPConnection.putheader(self, header, *values)
+  File "C:\Users\W\miniconda3\lib\http\client.py", line 1250, in putheader
+    values[i] = one_value.encode('latin-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 7-10: ordinal not in range(256)
+2026-07-24 15:04:23,922 - INFO - [ASSEMBLE] 装配原生组件
+2026-07-24 15:04:23,922 - INFO - [PUBLISH] 上架《高定抗衰私教专场》
+2026-07-24 15:04:24,326 - INFO - [OK] H5_AI_1784876663_279 上架成功
+2026-07-24 15:11:05,421 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:11:05,422 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:11:05,422 - WARNING - API Key 无效或未设置，跳过调用大模型，使用兜底数据
+2026-07-24 15:11:05,422 - ERROR - 流水线异常：非法 API Key
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 286, in <module>
+    remixed = ai_remix_engine(sample_a, sample_b)
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 95, in ai_remix_engine
+    raise ValueError("非法 API Key")
+ValueError: 非法 API Key
+2026-07-24 15:11:06,430 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:11:06,430 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:11:06,430 - WARNING - API Key 无效或未设置，跳过调用大模型，使用兜底数据
+2026-07-24 15:11:06,430 - ERROR - 流水线异常：非法 API Key
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 286, in <module>
+    remixed = ai_remix_engine(sample_a, sample_b)
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 95, in ai_remix_engine
+    raise ValueError("非法 API Key")
+ValueError: 非法 API Key
+2026-07-24 15:14:03,557 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:14:03,557 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:14:03,557 - ERROR - 大模型调用失败，启用兜底数据
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 104, in ai_remix_engine
+    resp = requests.post("https://open.bigmodel.cn/api/paas/v4/chat/completions", json=payload, headers=headers, timeout=15)
+NameError: name 'payload' is not defined
+2026-07-24 15:14:03,558 - INFO - [ASSEMBLE] 装配原生组件
+2026-07-24 15:14:03,558 - INFO - [PUBLISH] 上架《智能美肤焕新企划》
+2026-07-24 15:14:03,662 - INFO - [OK] H5_AI_1784877243_153 上架成功
+2026-07-24 15:14:04,677 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:14:04,677 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:14:04,677 - ERROR - 大模型调用失败，启用兜底数据
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 104, in ai_remix_engine
+    resp = requests.post("https://open.bigmodel.cn/api/paas/v4/chat/completions", json=payload, headers=headers, timeout=15)
+NameError: name 'payload' is not defined
+2026-07-24 15:14:04,677 - INFO - [ASSEMBLE] 装配原生组件
+2026-07-24 15:14:04,677 - INFO - [PUBLISH] 上架《高定抗衰私教专场》
+2026-07-24 15:14:04,802 - INFO - [OK] H5_AI_1784877244_622 上架成功
+2026-07-24 15:15:46,039 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:15:46,039 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:15:46,039 - ERROR - 大模型调用失败，启用兜底数据
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 104, in ai_remix_engine
+    resp = requests.post("https://open.bigmodel.cn/api/paas/v4/chat/completions", json=payload, headers=headers, timeout=15)
+NameError: name 'payload' is not defined
+2026-07-24 15:15:46,040 - INFO - [ASSEMBLE] 装配原生组件
+2026-07-24 15:15:46,040 - INFO - [PUBLISH] 上架《智能美肤焕新企划》
+2026-07-24 15:15:46,107 - INFO - [OK] H5_AI_1784877346_910 上架成功
+2026-07-24 15:15:47,119 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:15:47,119 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:15:47,119 - ERROR - 大模型调用失败，启用兜底数据
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 104, in ai_remix_engine
+    resp = requests.post("https://open.bigmodel.cn/api/paas/v4/chat/completions", json=payload, headers=headers, timeout=15)
+NameError: name 'payload' is not defined
+2026-07-24 15:15:47,119 - INFO - [ASSEMBLE] 装配原生组件
+2026-07-24 15:15:47,119 - INFO - [PUBLISH] 上架《高定抗衰私教专场》
+2026-07-24 15:15:47,209 - INFO - [OK] H5_AI_1784877347_611 上架成功
+2026-07-24 15:17:31,014 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:17:31,014 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:17:36,076 - INFO - [ASSEMBLE] 装配原生组件
+2026-07-24 15:17:36,076 - INFO - [PUBLISH] 上架《3天焕肤奇迹，专业医美私教秘籍》
+2026-07-24 15:17:36,166 - INFO - [OK] H5_AI_1784877456_628 上架成功
+2026-07-24 15:17:37,171 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:17:37,171 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:17:43,233 - INFO - [ASSEMBLE] 装配原生组件
+2026-07-24 15:17:43,233 - INFO - [PUBLISH] 上架《焕肤秘籍：限时奢华水光针体验》
+2026-07-24 15:17:43,294 - INFO - [OK] H5_AI_1784877463_334 上架成功
+2026-07-24 15:34:16,632 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:34:16,633 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:34:31,710 - ERROR - 大模型规划失败，使用兜底蓝图
+Traceback (most recent call last):
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\W\miniconda3\lib\http\client.py", line 1369, in getresponse
+    response.begin()
+  File "C:\Users\W\miniconda3\lib\http\client.py", line 310, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\W\miniconda3\lib\http\client.py", line 271, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\W\miniconda3\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 1071, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 929, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 499, in send
+    timeout=timeout,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 786, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\packages\six.py", line 770, in reraise
+    raise value
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 341, in _raise_timeout
+    self, url, "Read timed out. (read timeout=%s)" % timeout_value
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Read timed out. (read timeout=15)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 258, in ai_remix_engine
+    json=payload, headers=headers, timeout=15)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 578, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Read timed out. (read timeout=15)
+2026-07-24 15:34:31,715 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 15:34:31,715 - ERROR - 流水线异常：name 'schema' is not defined
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 435, in <module>
+    schema = build_native_schema(blueprint)
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 311, in build_native_schema
+    push_to_mall(blueprint['page_title'], schema, cover_url)
+NameError: name 'schema' is not defined
+2026-07-24 15:34:32,725 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:34:32,725 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:34:44,875 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 15:34:44,875 - ERROR - 流水线异常：name 'schema' is not defined
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 435, in <module>
+    schema = build_native_schema(blueprint)
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 311, in build_native_schema
+    push_to_mall(blueprint['page_title'], schema, cover_url)
+NameError: name 'schema' is not defined
+2026-07-24 15:50:42,342 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:50:42,342 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:50:42,356 - ERROR - 大模型规划失败，使用兜底蓝图
+Traceback (most recent call last):
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 700, in urlopen
+    self._prepare_proxy(conn)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 994, in _prepare_proxy
+    conn.connect()
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connection.py", line 364, in connect
+    conn = self._connect_tls_proxy(hostname, conn)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connection.py", line 507, in _connect_tls_proxy
+    ssl_context=ssl_context,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\ssl_.py", line 453, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\ssl_.py", line 495, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock)
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 423, in wrap_socket
+    session=session
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 870, in _create
+    self.do_handshake()
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 1139, in do_handshake
+    self._sslobj.do_handshake()
+OSError: [Errno 0] Error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 499, in send
+    timeout=timeout,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 786, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 258, in ai_remix_engine
+    json=payload, headers=headers, timeout=15)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 559, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+2026-07-24 15:50:42,359 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 15:50:42,359 - INFO - [PUBLISH] 上架《逆龄焕颜秘籍》
+2026-07-24 15:50:42,417 - INFO - [OK] H5_AI_1784879442_592 上架成功
+2026-07-24 15:50:43,425 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:50:43,425 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:50:43,434 - ERROR - 大模型规划失败，使用兜底蓝图
+Traceback (most recent call last):
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 700, in urlopen
+    self._prepare_proxy(conn)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 994, in _prepare_proxy
+    conn.connect()
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connection.py", line 364, in connect
+    conn = self._connect_tls_proxy(hostname, conn)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connection.py", line 507, in _connect_tls_proxy
+    ssl_context=ssl_context,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\ssl_.py", line 453, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\ssl_.py", line 495, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock)
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 423, in wrap_socket
+    session=session
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 870, in _create
+    self.do_handshake()
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 1139, in do_handshake
+    self._sslobj.do_handshake()
+OSError: [Errno 0] Error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 499, in send
+    timeout=timeout,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 786, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 258, in ai_remix_engine
+    json=payload, headers=headers, timeout=15)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 559, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+2026-07-24 15:50:43,435 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 15:50:43,436 - INFO - [PUBLISH] 上架《逆龄焕颜秘籍》
+2026-07-24 15:50:43,532 - INFO - [OK] H5_AI_1784879443_536 上架成功
+2026-07-24 15:54:31,336 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:54:31,336 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:54:31,350 - ERROR - 大模型规划失败，使用兜底蓝图
+Traceback (most recent call last):
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 700, in urlopen
+    self._prepare_proxy(conn)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 994, in _prepare_proxy
+    conn.connect()
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connection.py", line 364, in connect
+    conn = self._connect_tls_proxy(hostname, conn)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connection.py", line 507, in _connect_tls_proxy
+    ssl_context=ssl_context,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\ssl_.py", line 453, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\ssl_.py", line 495, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock)
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 423, in wrap_socket
+    session=session
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 870, in _create
+    self.do_handshake()
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 1139, in do_handshake
+    self._sslobj.do_handshake()
+OSError: [Errno 0] Error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 499, in send
+    timeout=timeout,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 786, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 262, in ai_remix_engine
+    json=payload, headers=headers, timeout=15)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 559, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+2026-07-24 15:54:31,352 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 15:54:31,352 - INFO - [PUBLISH] 上架《型男焕肤空间》
+2026-07-24 15:54:31,425 - INFO - [OK] H5_AI_1784879671_272 上架成功
+2026-07-24 15:54:32,432 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:54:32,432 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:54:32,442 - ERROR - 大模型规划失败，使用兜底蓝图
+Traceback (most recent call last):
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 700, in urlopen
+    self._prepare_proxy(conn)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 994, in _prepare_proxy
+    conn.connect()
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connection.py", line 364, in connect
+    conn = self._connect_tls_proxy(hostname, conn)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connection.py", line 507, in _connect_tls_proxy
+    ssl_context=ssl_context,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\ssl_.py", line 453, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\ssl_.py", line 495, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock)
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 423, in wrap_socket
+    session=session
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 870, in _create
+    self.do_handshake()
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 1139, in do_handshake
+    self._sslobj.do_handshake()
+OSError: [Errno 0] Error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 499, in send
+    timeout=timeout,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 786, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 262, in ai_remix_engine
+    json=payload, headers=headers, timeout=15)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 559, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+2026-07-24 15:54:32,443 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 15:54:32,444 - INFO - [PUBLISH] 上架《夏日S曲线计划》
+2026-07-24 15:54:32,510 - INFO - [OK] H5_AI_1784879672_177 上架成功
+2026-07-24 15:58:42,767 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:58:42,767 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 15:58:55,399 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 15:58:55,399 - INFO - [PUBLISH] 上架《焕颜秘籍》
+2026-07-24 15:58:55,489 - INFO - [OK] H5_AI_1784879935_848 上架成功
+2026-07-24 15:58:56,492 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:58:56,492 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 15:59:11,536 - ERROR - 大模型规划失败，使用兜底蓝图
+Traceback (most recent call last):
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\W\miniconda3\lib\http\client.py", line 1369, in getresponse
+    response.begin()
+  File "C:\Users\W\miniconda3\lib\http\client.py", line 310, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\W\miniconda3\lib\http\client.py", line 271, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\W\miniconda3\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 1071, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\W\miniconda3\lib\ssl.py", line 929, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 499, in send
+    timeout=timeout,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 786, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\util\retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\packages\six.py", line 770, in reraise
+    raise value
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\W\miniconda3\lib\site-packages\urllib3\connectionpool.py", line 341, in _raise_timeout
+    self, url, "Read timed out. (read timeout=%s)" % timeout_value
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Read timed out. (read timeout=15)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/W/Desktop/网站开发/大模型架构/ai_worker_node.py", line 263, in ai_remix_engine
+    proxies={"http": None, "https": None})
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\W\miniconda3\lib\site-packages\requests\adapters.py", line 578, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Read timed out. (read timeout=15)
+2026-07-24 15:59:11,539 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 15:59:11,539 - INFO - [PUBLISH] 上架《夏日S曲线计划》
+2026-07-24 15:59:11,631 - INFO - [OK] H5_AI_1784879951_386 上架成功
+2026-07-24 16:02:19,161 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:02:19,162 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:02:38,991 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:02:38,991 - INFO - [PUBLISH] 上架《医美秘籍·焕新肌肤》
+2026-07-24 16:02:39,083 - INFO - [OK] H5_AI_1784880158_540 上架成功
+2026-07-24 16:02:40,097 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:02:40,097 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:02:53,630 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:02:53,631 - INFO - [PUBLISH] 上架《美肤秘籍，焕新肌肤》
+2026-07-24 16:02:53,794 - INFO - [OK] H5_AI_1784880173_939 上架成功
+2026-07-24 16:03:26,049 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:03:26,049 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:03:43,424 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:03:43,425 - INFO - [PUBLISH] 上架《Luxury Hydration Injection Flash Sale》
+2026-07-24 16:03:43,534 - INFO - [OK] H5_AI_1784880223_964 上架成功
+2026-07-24 16:03:44,545 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:03:44,545 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:04:04,972 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:04:04,973 - INFO - [PUBLISH] 上架《奢华医美体验》
+2026-07-24 16:04:05,047 - INFO - [OK] H5_AI_1784880244_397 上架成功
+2026-07-24 16:11:48,148 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:11:48,149 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:11:59,924 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:11:59,925 - INFO - [PUBLISH] 上架《Your Beauty Journey Starts Here》
+2026-07-24 16:12:00,091 - INFO - [OK] H5_AI_1784880719_123 上架成功
+2026-07-24 16:12:01,103 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:12:01,103 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:12:20,376 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:12:20,376 - INFO - [PUBLISH] 上架《皮肤焕新，焕发青春光彩》
+2026-07-24 16:12:20,436 - INFO - [OK] H5_AI_1784880740_965 上架成功
+2026-07-24 16:16:30,872 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:16:30,872 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:16:45,286 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:16:45,286 - INFO - [PUBLISH] 上架《皮肤逆袭计划》
+2026-07-24 16:16:45,354 - INFO - [OK] H5_AI_1784881005_166 上架成功
+2026-07-24 16:16:46,359 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:16:46,359 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:17:00,479 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:17:00,479 - INFO - [PUBLISH] 上架《3-Day Beauty Revival》
+2026-07-24 16:17:00,586 - INFO - [OK] H5_AI_1784881020_293 上架成功
+2026-07-24 16:25:49,836 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:25:50,013 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:25:50,166 - WARNING - AI调用第1次失败：HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+2026-07-24 16:25:52,185 - WARNING - AI调用第2次失败：HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+2026-07-24 16:25:54,207 - WARNING - AI调用第3次失败：HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+2026-07-24 16:25:54,207 - ERROR - 大模型规划多次重试后仍失败，使用兜底蓝图
+NoneType: None
+2026-07-24 16:25:54,207 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:25:54,207 - INFO - [PUBLISH] 上架《逆龄焕颜秘籍》
+2026-07-24 16:25:54,380 - INFO - [OK] H5_AI_1784881554_140 上架成功
+2026-07-24 16:25:55,394 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:25:55,524 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:25:55,672 - WARNING - AI调用第1次失败：HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+2026-07-24 16:25:57,690 - WARNING - AI调用第2次失败：HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+2026-07-24 16:25:59,704 - WARNING - AI调用第3次失败：HTTPSConnectionPool(host='open.bigmodel.cn', port=443): Max retries exceeded with url: /api/paas/v4/chat/completions (Caused by ProxyError('Cannot connect to proxy.', OSError(0, 'Error')))
+2026-07-24 16:25:59,704 - ERROR - 大模型规划多次重试后仍失败，使用兜底蓝图
+NoneType: None
+2026-07-24 16:25:59,705 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:25:59,705 - INFO - [PUBLISH] 上架《韩式水光肌》
+2026-07-24 16:25:59,776 - INFO - [OK] H5_AI_1784881559_874 上架成功
+2026-07-24 16:35:54,430 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:35:54,662 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:36:19,155 - INFO - 成功使用模型: zhipu
+2026-07-24 16:36:19,155 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:36:19,156 - INFO - [PUBLISH] 上架《美肌盛宴·秒杀特惠》
+2026-07-24 16:36:19,256 - INFO - [OK] H5_AI_1784882179_147 上架成功
+2026-07-24 16:36:20,267 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:36:20,616 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:36:38,753 - INFO - 成功使用模型: zhipu
+2026-07-24 16:36:38,754 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:36:38,754 - INFO - [PUBLISH] 上架《美肤焕新，尽在掌握》
+2026-07-24 16:36:38,888 - INFO - [OK] H5_AI_1784882198_682 上架成功
+2026-07-24 16:45:19,349 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:45:19,511 - INFO - 素材来源(兜底): Xianyu_Hot | 内容: 专业皮肤管理方案，大厂白领都在用的美肤指南
+2026-07-24 16:45:19,511 - INFO - [SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:45:19,601 - INFO - 素材来源(兜底): Xianyu_Hot | 内容: 专业皮肤管理方案，大厂白领都在用的美肤指南
+2026-07-24 16:45:32,762 - INFO - 并发成功使用模型: zhipu
+2026-07-24 16:45:32,762 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:45:32,762 - INFO - [PUBLISH] 上架《美肤秘籍大公开》
+2026-07-24 16:45:32,860 - INFO - [OK] H5_AI_1784882732_537 上架成功
+2026-07-24 16:45:33,868 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:45:34,017 - INFO - 素材来源(兜底): Xianyu_Hot | 内容: 专业皮肤管理方案，大厂白领都在用的美肤指南
+2026-07-24 16:45:34,017 - INFO - [SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:45:34,096 - INFO - 素材来源(兜底): Xiaohongshu_Top | 内容: 3天逆袭，告别皮肤暗沉，高端医美私教秘籍
+2026-07-24 16:45:46,713 - INFO - 并发成功使用模型: zhipu
+2026-07-24 16:45:46,714 - INFO - [ASSEMBLE] 动态装配组件
+2026-07-24 16:45:46,714 - INFO - [PUBLISH] 上架《美肤秘籍》
+2026-07-24 16:45:46,798 - INFO - [OK] H5_AI_1784882746_561 上架成功
+2026-07-24 16:57:05,186 - INFO - 
+[SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:57:05,347 - INFO - 🔗 兜底来源: https://item.taobao.com/item.htm?id=222
+2026-07-24 16:57:05,347 - INFO - 📝 兜底内容: 限时秒杀：奢华水光针体验，全套立体化抗衰服务
+2026-07-24 16:57:05,347 - INFO - 
+[SCAN] 扫描【Tier_1_Top10】层级...
+2026-07-24 16:57:05,460 - INFO - 🔗 兜底来源: https://item.taobao.com/item.htm?id=222
+2026-07-24 16:57:05,460 - INFO - 📝 兜底内容: 限时秒杀：奢华水光针体验，全套立体化抗衰服务
+2026-07-24 16:57:23,763 - INFO - ⚡ 并发成功：使用的是 [zhipu] 模型
+2026-07-24 16:57:23,763 - INFO - [ASSEMBLE] 动态装配组件，并独立处理 AI 图像分配...
+2026-07-24 16:57:23,764 - INFO - [PUBLISH] 准备上架《奢享水光针，立体抗衰体验》...
+2026-07-24 16:57:23,855 - INFO - ✅ 【奢享水光针，立体抗衰体验】 上架成功！
+2026-07-24 16:57:24,859 - INFO - 
+[SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:57:24,943 - INFO - 🔗 兜底来源: https://www.xiaohongshu.com/explore/111
+2026-07-24 16:57:24,943 - INFO - 📝 兜底内容: 3天逆袭，告别皮肤暗沉，高端医美私教秘籍
+2026-07-24 16:57:24,943 - INFO - 
+[SCAN] 扫描【Tier_2_Top100】层级...
+2026-07-24 16:57:25,022 - INFO - 🔗 兜底来源: https://www.xiaohongshu.com/explore/111
+2026-07-24 16:57:25,022 - INFO - 📝 兜底内容: 3天逆袭，告别皮肤暗沉，高端医美私教秘籍
+2026-07-24 16:57:45,086 - INFO - ⚡ 并发成功：使用的是 [zhipu] 模型
+2026-07-24 16:57:45,087 - INFO - [ASSEMBLE] 动态装配组件，并独立处理 AI 图像分配...
+2026-07-24 16:57:45,087 - INFO - [PUBLISH] 准备上架《3天逆袭，告别皮肤暗沉，高端医美私教秘籍》...
+2026-07-24 16:57:45,141 - INFO - ✅ 【3天逆袭，告别皮肤暗沉，高端医美私教秘籍】 上架成功！

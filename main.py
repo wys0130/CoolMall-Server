@@ -18,7 +18,6 @@ except ImportError:
     print("❌ 缺少 Pillow 库，请在终端运行: pip install Pillow")
     exit(1)
 
-# 🌟 云原生改造 1：引入 Turso 数据库直连库
 import libsql_experimental as libsql
 
 socket.setdefaulttimeout(25)
@@ -28,7 +27,6 @@ console_handler = logging.StreamHandler()
 console_handler.setFormatter(logging.Formatter('%(message)s'))
 logging.basicConfig(level=logging.INFO, handlers=[console_handler])
 
-# 🌟 云原生改造 2：废弃本地 7890 代理，GitHub 服务器自带全球网络直连
 proxies = {
     "http": None,
     "https": None,
@@ -244,7 +242,6 @@ def composite_poster_cover(img_base64_or_path, hero_title, sub_title="", english
         width, height = img.size
         draw_temp = ImageDraw.Draw(img)
 
-        # 🌟 云原生改造 3：注入 GitHub Ubuntu 服务器默认中文字体路径，防止乱码
         font_candidates = FONT_CATALOG.get(font_style, FONT_CATALOG["tech"])
         sys_font = None
         ubuntu_font = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
@@ -580,7 +577,6 @@ def build_native_schema(blueprint):
     return schema_list, cover_base64
 
 
-# 🌟 云原生改造 4：废弃 localhost 接口，直连 Turso 数据库完成数据上架！
 def push_to_mall(page_title, schema_json, cover_url):
     TURSO_DB_URL = os.environ.get("TURSO_DB_URL")
     TURSO_AUTH_TOKEN = os.environ.get("TURSO_AUTH_TOKEN")
@@ -593,7 +589,6 @@ def push_to_mall(page_title, schema_json, cover_url):
         conn = libsql.connect(database=TURSO_DB_URL, auth_token=TURSO_AUTH_TOKEN)
         cursor = conn.cursor()
 
-        # 确保线上库里有作品表 (适配 Cloudflare 前端的字段结构)
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS h5_works (
                 id TEXT PRIMARY KEY,
@@ -607,7 +602,6 @@ def push_to_mall(page_title, schema_json, cover_url):
         """)
 
         work_id = f"H5_{int(time.time())}"
-        # 使用 json.dumps 将 Python 列表存为 JSON 字符串
         cursor.execute("""
             INSERT INTO h5_works (id, title, subTitle, cover_url, schema_json, category, is_published)
             VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -639,3 +633,13 @@ if __name__ == "__main__":
         time.sleep(1)
         print("-" * 60)
     print("🎉 任务完成！这波生成的模板已经稳稳躺在你的云端大盘里了！")
+
+    # 🌟 核心修改：在主干脚本干完活后，自动顺手唤醒 AI CEO 一起思考并退出！
+    print("\n🧠 [2/2] 正在唤醒 AI CEO 进行夜间复盘与思考...")
+    try:
+        from ai_ceo_core import AICEOSystem
+        ceo = AICEOSystem()
+        ceo.run_once()
+    except Exception as e:
+        logging.error(f"❌ AI CEO 思考失败: {e}")
+    print("🎉 全部云端任务完美竣工！")
