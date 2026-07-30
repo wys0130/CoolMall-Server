@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59dce538-c0a2-447a-bef3-05801ac500c1" name="默认更改列表" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_ceo_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_ceo_core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="59dce538-c0a2-447a-bef3-05801ac500c1" name="默认更改列表" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,10 +26,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
+            <state relative-caret-position="210">
               <caret line="616" column="36" selection-start-line="616" selection-start-column="36" selection-end-line="616" selection-end-column="36" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -42,11 +38,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ai_ceo_core.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
+            <state relative-caret-position="-1343">
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -70,8 +65,8 @@
       <find>ild_native_schem</find>
       <find>73f2969b84454361a3210f442ca79</find>
       <find>DEEPSEEK_API_KEY = &quot;sk-73f2969b84454361a3210f44</find>
-      <find>f push_to_mall(page_title, schema_</find>
       <find>ef push_to_mall(page_title, schema_json, cover_url</find>
+      <find>f push_to_mall(page_title, schema_</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -102,7 +97,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="35" />
     <option name="width" value="1350" />
     <option name="height" value="1020" />
@@ -271,6 +266,15 @@
   <component name="editorHistoryManager">
     <entry file="file://D:/CoolMall-Brain/ai_ceo_core.py" />
     <entry file="file://D:/CoolMall-Server/main.py" />
+    <entry file="file://$PROJECT_DIR$/ai_ceo_core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1343">
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ai_worker_node.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -283,18 +287,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
+        <state relative-caret-position="210">
           <caret line="616" column="36" selection-start-line="616" selection-start-column="36" selection-end-line="616" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ai_ceo_core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
